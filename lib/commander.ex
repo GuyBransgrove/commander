@@ -8,17 +8,17 @@ defmodule Commander do
 
   ## Examples
 
-  iex> Commander.handle_main(["test","-test","-othertest","--newtest=test","-nt=newtest","--doubledash"])
-  %Config{
-  arguments: ["test"],
-  options: %{
-  "doubledash" => true,
-  "newtest" => "test",
-  "nt" => "newtest",
-  "othertest" => true,
-  "test" => true
-  }
-  }
+      iex> Commander.handle_main(["test","-test","-othertest","--newtest=test","-nt=newtest","--doubledash"])
+      %Config{
+        arguments: ["test"],
+        options: %{
+          "doubledash" => true,
+          "newtest" => "test",
+          "nt" => "newtest",
+          "othertest" => true,
+          "test" => true
+        }
+      }
 
   """
   def handle_main(args) do
@@ -35,8 +35,8 @@ defmodule Commander do
 
   ## Examples
 
-  iex> Commander.map_arguments({["test","-test","-othertest","--newtest=test","-nt=newtest","--doubledash"], %Config{}})
-  {["test","-test","-othertest","--newtest=test","-nt=newtest","--doubledash"], %Config{arguments: ["test"], options: %{}}}
+      iex> Commander.map_arguments({["test","-test","-othertest","--newtest=test","-nt=newtest","--doubledash"], %Config{}})
+      {["test","-test","-othertest","--newtest=test","-nt=newtest","--doubledash"], %Config{arguments: ["test"], options: %{}}}
 
   """
   def map_arguments({args, config}) when is_list(args) do
@@ -53,8 +53,8 @@ defmodule Commander do
 
   ## Examples
 
-  iex> Commander.map_options({["test","-test","-othertest","--newtest=test","-nt=newtest","--doubledash"], %Config{}})
-  {["test","-test","-othertest","--newtest=test","-nt=newtest","--doubledash"], %Config{arguments: [], options: %{"doubledash" => true,"newtest" => "test","nt" => "newtest","othertest" => true,"test" => true}}}
+      iex> Commander.map_options({["test","-test","-othertest","--newtest=test","-nt=newtest","--doubledash"], %Config{}})
+      {["test","-test","-othertest","--newtest=test","-nt=newtest","--doubledash"], %Config{arguments: [], options: %{"doubledash" => true,"newtest" => "test","nt" => "newtest","othertest" => true,"test" => true}}}
 
   """
   def map_options({args, config}) when is_list(args) do
@@ -75,8 +75,8 @@ defmodule Commander do
 
   ## Examples
 
-  iex> Commander.parse_option("--newtest=test")
-  "newtest=test"
+      iex> Commander.parse_option("--newtest=test")
+      "newtest=test"
 
   """
   def parse_option(arg) do
@@ -94,11 +94,11 @@ defmodule Commander do
 
   ## Examples
 
-  iex> Commander.lookup_full_option("-t=test", %{"t" => "trythisone"})
-  "trythisone=test"
+      iex> Commander.lookup_full_option("-t=test", %{"t" => "trythisone"})
+      "trythisone=test"
 
-  iex> Commander.lookup_full_option("-x", %{"x" => "anotherone"})
-  "anotherone"
+      iex> Commander.lookup_full_option("-x", %{"x" => "anotherone"})
+      "anotherone"
 
   """
   def lookup_full_option(arg, full_options) do

@@ -1,3 +1,3 @@
 defmodule Config do
-    defstruct arguments: [], options: %{}
+  defstruct arguments: [], options: %{}
 end
